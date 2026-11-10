@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#163423" />
+    <title>Nutrition Tracker</title>
+    <!-- The Restaurant tab's pixel font (free, from Google Fonts). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    />
+    <script>
+      // Apply saved display settings before the page draws so it doesn't
+      // flash. The keys match THEME_KEY and COLORBLIND_KEY in src/storage.ts.
+      try {
+        const theme = localStorage.getItem("nutrition-tracker:theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.dataset.theme = theme;
+        }
+        if (localStorage.getItem("nutrition-tracker:colorblind") === "on") {
+          document.documentElement.dataset.palette = "colorblind";
+        }
+      } catch {
+        // Storage is blocked; main.ts shows a warning once the page loads.
+      }
+    </script>
+    <script type="module" crossorigin src="./assets/index-D91MTcS6.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-8pM7iazE.css">
+  </head>
+  <body>
+    <main id="tab-content" class="app-content">
+      <p id="storage-warning" class="warning" role="alert" hidden>
+        This browser isn't letting the app save. Your log will reset when you
+        close the app.
+      </p>
+    </main>
+
+    <p id="toast" class="toast" role="status" hidden></p>
+
+    <nav class="tab-bar" aria-label="Main">
+      <a class="tab-link" href="#summary" data-tab="summary">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" />
+          <rect x="14" y="3" width="7" height="7" rx="1.5" />
+          <rect x="3" y="14" width="7" height="7" rx="1.5" />
+          <rect x="14" y="14" width="7" height="7" rx="1.5" />
+        </svg>
+        <span>Summary</span>
+      </a>
+      <a class="tab-link" href="#food" data-tab="food">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 3v5a2 2 0 0 0 4 0V3M7 3v18" />
+          <path d="M17 21V3c-2 1.5-3 4-3 7h3" />
+        </svg>
+        <span>Food</span>
+      </a>
+      <a class="tab-link" href="#water" data-tab="water">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />
+        </svg>
+        <span>Water</span>
+      </a>
+      <a
+        class="tab-link tab-link-center"
+        href="#restaurant"
+        data-tab="restaurant"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 10v10h16V10" />
+          <path
+            d="M3 4h18l1 4a3 3 0 0 1-5 1 3 3 0 0 1-5 0 3 3 0 0 1-5 0 3 3 0 0 1-5-1z"
+          />
+          <path d="M10 20v-5h4v5" />
+        </svg>
+        <span>Restaurant</span>
+      </a>
+      <a class="tab-link" href="#schedule" data-tab="schedule">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </svg>
+        <span>Schedule</span>
+      </a>
+      <a class="tab-link" href="#history" data-tab="history">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" />
+          <path d="M3.5 10h17M8 3v4M16 3v4" />
+        </svg>
+        <span>History</span>
+      </a>
+      <a class="tab-link" href="#settings" data-tab="settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0" />
+          <circle cx="16" cy="6" r="2" />
+          <circle cx="10" cy="12" r="2" />
+          <circle cx="18" cy="18" r="2" />
+        </svg>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+  </body>
+</html>
